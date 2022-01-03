@@ -1,0 +1,35 @@
+AddDefaultCharset UTF-8
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^([A-Za-z0-9-/]+)$ /index.php?query=$1 [L]
+
+ErrorDocument 404 /404.php
+
+#RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/
+#RewriteRule ^index\.php$ http://domainename.com/ [R=301,L]
+
+#RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+#RewriteRule ^index\.html$ http://domainename.com/ [R=301,L]
+
+RewriteRule ^sitemap\.xml$ sitemapp.php [L]
+
+Options -Indexes
+
+<IfModule mod_expires.c>
+    <FilesMatch ".(jpg|jpeg|png|gif|swf|ico|woff|woff2|css|eot|ttf|otf|js|svg)$">
+    ExpiresActive On
+    ExpiresDefault "access plus 5184000 seconds"
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch ".(jpg|jpeg|png|gif|swf|ico|woff|woff2|css|eot|ttf|otf|js|svg)$">
+    Header set Cache-Control "max-age=5184000, public, must-revalidate"
+    Header unset ETag
+    FileETag None
+    </FilesMatch>
+</IfModule>
