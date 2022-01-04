@@ -27,11 +27,10 @@
     15.3 Click button Close - 'reset-impossible'
     15.4 Click button Close - 'pw-reset-impossible'
     12.5 Click button Close - '.btn-password-reset'
- 16. Handle 'Enter' key and popup messages
- 17. If click eye icon in a 'password' input field
- 18. Contact form
-    18.1. Click 'Close' after message was sent
- 19. Slide panel
+ 16. If click eye icon in a 'password' input field
+ 17. Contact form
+    17.1. Click 'Close' after message was sent
+ 18. Slide panel
 */
 
 // -------------------------------------------------------------- 1. Functions
@@ -221,7 +220,6 @@ $(document).on("click", ".btn-danger", function(event){
     $(".form-messages").fadeTo(middleTime, 0, function(){
         $(".form-messages").empty();
     });
-
 });
 
 // --------------------------------- 8. If click 'user-was-registered' message
@@ -493,43 +491,7 @@ $(document).on("click", ".btn-password-reset", function(event){
     });
 });
 
-// --------------------------------- 16. Handle 'Enter' key and popup messages
-
-window.addEventListener("keyup", function(event){
-
-		if (event.keyCode == 13) {
-
-
-        if (! $(".btn-danger, .btn-ok").length) {
-
-            $("input").blur();
-
-        } else {
-
-            // Find out which current popup message is shown up
-            if ($(".btn-password-reset, .user-was-registered").length) {
-
-                event.preventDefault();
-                $(location).attr("href", "/sign-in");
-
-            } else if ($(".pw-reset-impossible, .reset-impossible").length) {
-
-                event.preventDefault();
-                $(location).attr("href", "/contact-us");
-
-            } else {
-
-                event.preventDefault();
-
-                $(".form-messages").fadeTo(middleTime, 0, function(){
-                    $(".form-messages").empty();
-                });
-            }
-		   }
-    }
-});
-
-// ------------------------- 17. If click eye icon in a 'password' input field
+// ------------------------- 16. If click eye icon in a 'password' input field
 
 let eyeTrigger = false;
 
@@ -553,7 +515,7 @@ $(document).on("click", ".eye-icon-pw", function(event){
     }
 });
 
-// --------------------------------------------------------- 18. Contact form
+// --------------------------------------------------------- 17. Contact form
 
 // Click 'btn-send-contact' button
 $(".btn-send-contact").on('click', function(event) {
@@ -586,7 +548,7 @@ $(".btn-send-contact").on('click', function(event) {
 		}, longTime);
 });
 
-// -------------------------------- 18.1. Click 'Close' after message was sent
+// -------------------------------- 17.1. Click 'Close' after message was sent
 
 $(document).on("click", ".message-sent", function(event){
 
@@ -597,7 +559,7 @@ $(document).on("click", ".message-sent", function(event){
 		});
 });
 
-// ----------------------------------------------------------- 19. Slide panel
+// ----------------------------------------------------------- 18. Slide panel
 
 // Load 'Slide panel' when '$(document)' is ready
 $('.mobile-content').load("/app/includes/slide-panel.inc.php");
