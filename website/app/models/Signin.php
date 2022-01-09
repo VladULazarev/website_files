@@ -10,7 +10,7 @@ class Signin extends Model
     /**
      * Get 'id' and 'login' using currrent 'email'
      */
-    public function getIdAndLogin($userEmail)
+    public function getIdAndLogin(string $userEmail)
     {
         $query = $this->connect()->query("SELECT
             id, login
