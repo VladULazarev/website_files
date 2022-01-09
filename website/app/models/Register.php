@@ -12,7 +12,7 @@ class Register extends Model
     /**
      * Checks if 'cell value' exists
      */
-    public function getOne($columnName, $cellValue)
+    public function getOne(string $columnName, string $cellValue)
     {
       $query = $this->connect()->query("SELECT
          id
