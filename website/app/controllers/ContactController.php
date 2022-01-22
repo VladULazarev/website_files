@@ -66,7 +66,7 @@ class ContactController extends Controller
     }
 }
 
-// --------------------------------------- 1. If a form 'Contact' was submited
+// --------------------------------------- 1. If the form 'Contact' was submited
 if (isset($_POST['contactForm'])) {
 
     $userIp = Model::getUsersIp();
@@ -82,6 +82,7 @@ if (isset($_POST['contactForm'])) {
     } elseif ($coreModelObj->checkAmountOfTheSameValueInOneColumn(
 
             'contact_messages', 'user_ip', $userIp
+        
         ) >= AMOUNT_OF_CONTACT_MESSANGES) {
 
         MessageController::showPopupMessageFromCurrentForm('contact', 'ip-exists');
