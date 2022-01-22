@@ -66,7 +66,7 @@ class ContactController extends Controller
     }
 }
 
-// --------------------------------------- 1. If the form 'Contact' was submited
+// --------------------------------------- 1. If the form 'Contact Us' was submited
 if (isset($_POST['contactForm'])) {
 
     $userIp = Model::getUsersIp();
