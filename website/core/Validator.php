@@ -14,7 +14,7 @@ trait Validator
     private static $emailPattern = '/^[\w.\-]+@[\w.\-]+\.[A-Za-z]{2,6}$/';
 
     /** @var pattern for password */
-    private static $passwordPattern = '/^[\w\-\_]{6,16}$/';
+    private static $passwordPattern = '/^[\w\-]{6,16}$/';
 
     /** @var pattern for uri */
     private static $uriPattern = '/^[a-z\-]+$/u';
